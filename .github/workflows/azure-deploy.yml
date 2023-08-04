@@ -8,12 +8,15 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-       working-directory: ./test
+    
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Create deployment directory
+      run: |
+          mkdir deploy
+          cp /home/runner/work/hellow-world/hellow-world/index.html deploy/
     - name: Install Azure CLI
       run: |
            # Install Azure CLI
@@ -38,7 +41,7 @@ jobs:
       with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ${{ env.working-directory }} # Update this path to the folder containing your HTML file
+          package: ./deploy # Update this path to the folder containing your HTML file
           credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
         
