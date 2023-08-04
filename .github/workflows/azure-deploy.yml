@@ -32,16 +32,4 @@ jobs:
           -g RG_IAC \
           -n Samplehelloworldapp \
           --src ./code.zip
-    - name: Create and Upload Artifact
-      run: |
-        # Create a directory for the deployment artifacts
-        mkdir deploy
-
-        # Create a zip file containing the index.html in the deploy directory
-        zip -r deploy/deploy.zip index.html
-
-        # Upload the deploy.zip file as an artifact
-        mv deploy/deploy.zip $GITHUB_WORKSPACE
-        artifacts:
-            name: deployment-artifact
-            path: $GITHUB_WORKSPACE/deploy/deploy.zip  
+    
