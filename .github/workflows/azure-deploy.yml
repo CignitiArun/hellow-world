@@ -14,7 +14,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: list the files
-      run: ls -la
+      run: |
+           pwd
+           ls -la
     - name: Create deployment directory
       run: |
           mkdir deploy
