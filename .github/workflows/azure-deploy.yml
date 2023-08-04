@@ -27,7 +27,7 @@ jobs:
         #zip -r code.zip index.html
 
         # Deploy to Azure Web App
-        az webapp deployment source index.html \
+        az webapp deployment source /hellow-world/index.html \
           -g RG_IAC \
           -n Samplehelloworldapp \
 
