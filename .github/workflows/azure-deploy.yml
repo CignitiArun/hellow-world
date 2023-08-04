@@ -34,9 +34,14 @@ jobs:
           --src ./code.zip
     - name: Create and Upload Artifact
       run: |
-        # Create a zip file containing the index.html
-        zip -r deploy.zip index.html
-        mv deploy.zip $GITHUB_WORKSPACE
+        # Create a directory for the deployment artifacts
+        mkdir deploy
+
+        # Create a zip file containing the index.html in the deploy directory
+        zip -r deploy/deploy.zip index.html
+
+        # Upload the deploy.zip file as an artifact
+        mv deploy/deploy.zip $GITHUB_WORKSPACE
         artifacts:
-             name: deployment-artifact
-             path: $GITHUB_WORKSPACE/deploy.zip
+            name: deployment-artifact
+            path: $GITHUB_WORKSPACE/deploy/deploy.zip  
