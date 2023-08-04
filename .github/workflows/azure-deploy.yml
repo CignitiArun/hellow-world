@@ -24,10 +24,11 @@ jobs:
     
     - name: Build and deploy to Azure Web App
       run: |
-        # Build your app here (if needed)
+        # Create a zip file containing the index.html
+        zip -r code.zip index.html
 
         # Deploy to Azure Web App
         az webapp deployment source config-zip \
           -g RG_IAC \
           -n Samplehelloworldapp \
-          --src ./
+          --src ./code.zip
