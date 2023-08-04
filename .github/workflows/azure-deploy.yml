@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    #- name: Checkout code
+      #uses: actions/checkout@v2
     - name: Install Azure CLI
       run: |
            # Install Azure CLI
@@ -36,7 +36,7 @@ jobs:
       with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: /hellow-world/index.html # Update this path to the folder containing your HTML file
+          package: ./index.html # Update this path to the folder containing your HTML file
           credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
         
