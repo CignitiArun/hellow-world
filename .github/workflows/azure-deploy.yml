@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: list the files
+      run: ls -la
     - name: Create deployment directory
       run: |
           mkdir deploy
