@@ -36,7 +36,7 @@ jobs:
       run: |
         # Create a zip file containing the index.html
         zip -r deploy.zip index.html
-        mv code.zip $GITHUB_WORKSPACE
+        mv deploy.zip $GITHUB_WORKSPACE
         artifacts:
              name: deployment-artifact
              path: $GITHUB_WORKSPACE/deploy.zip
