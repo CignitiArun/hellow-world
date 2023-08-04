@@ -21,15 +21,26 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
     - name: Build and deploy to Azure Web App
       run: |
         # Create a zip file containing the index.html
-        zip -r code.zip index.html
+        #zip -r code.zip index.html
 
         # Deploy to Azure Web App
-        az webapp deployment source config-zip \
+        az webapp deployment source index.html \
           -g RG_IAC \
           -n Samplehelloworldapp \
-          --src ./code.zip
+
+        
+    
+    # - name: Build and deploy to Azure Web App
+    #   run: |
+    #     # Create a zip file containing the index.html
+    #     zip -r code.zip index.html
+
+    #     # Deploy to Azure Web App
+    #     az webapp deployment source config-zip \
+    #       -g RG_IAC \
+    #       -n Samplehelloworldapp \
+    #       --src ./code.zip
     
